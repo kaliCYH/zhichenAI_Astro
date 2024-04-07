@@ -1,5 +1,5 @@
 FROM node:lts-alpine as runtime
-WORKDIR /app
+WORKDIR ./app
 
 COPY . .
 
