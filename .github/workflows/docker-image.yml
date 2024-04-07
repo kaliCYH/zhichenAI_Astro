@@ -15,4 +15,6 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      env:
+          IMAGE_TAG: ${{ github.sha }} # 用于标记容器版本号
+      run: docker build . --file Dockerfile --tag my-image-name:$IMAGE_TAG
