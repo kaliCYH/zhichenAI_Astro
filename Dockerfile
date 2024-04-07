@@ -1,10 +1,11 @@
-FROM node:lts-alpine as base
-WORKDIR /base
-COPY ./package.json ./package.json
-RUN yarn install
-COPY ./ ./
+FROM node:lts AS runtime
 
-FROM base AS dev
-ENV NODE_ENV=development
+COPY . .
+
+RUN npm install
+RUN npm run build
+
+ENV HOST=0.0.0.0
+ENV PORT=4321
 EXPOSE 4321
-CMD ["yarn","start"]
+CMD node ./dist/server/entry.mjs
