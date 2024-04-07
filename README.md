@@ -49,9 +49,13 @@ All commands are run from the root of the project, from a terminal:
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
 
-docker run -p 4321:4321 ghcr.io/kalicyh/zhichenai_astro:main
+docker run -p 4321:4321 ghcr.io/kalicyh/zhichenai_astro:latest
 
-docker run -p 4321:4321 ghcr.nju.edu.cn/kalicyh/zhichenai_astro:main
+docker run -p 4321:4321 ghcr.nju.edu.cn/kalicyh/zhichenai_astro:latest
+
+docker tag ghcr.io/kalicyh/zhichenai_astro:main ghcr.io/kalicyh/zhichenai_astro:v1.0.0
+
+docker push ghcr.io/kalicyh/zhichenai_astro:v1.0.0
 
 
 ## 👀 Want to learn more?
